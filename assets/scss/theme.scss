@@ -1,0 +1,167 @@
+
+@import
+'font',
+'mixins',
+'variables';
+
+*{
+    box-sizing: border-box;
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-family: $font-family;
+    background-image: url('../media/bg-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $color-primary;
+    background-position: 0 -80px;
+    @include responsive(768px) {
+        background-image: url('../media/bg-mobile.svg');
+        background-size: contain;
+        background-position: initial;
+    }
+}
+a[href] {
+    text-decoration: none;
+}
+.hd {
+    &-container {
+        width: 100%;
+        max-width: 1340px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    &-heading {
+        font-family: $font-family-heading;
+    }
+    &-btn {
+        border-radius: 30px;
+        min-height: 54px;
+        text-decoration: none;
+        background: $color-white;
+        line-height: 54px;
+        padding-left: 50px;
+        padding-right: 50px;
+        transition: all linear 0.2s;
+        box-shadow: 0 5px 10px #00000050;
+        cursor: pointer;
+        color: $color-primary;
+        &:hover,
+        &:active {
+            background: $color-secondary;
+            color: $color-white;
+        }
+        &:active {
+            box-shadow: initial;
+        }
+    }
+    &-header {
+        padding: 50px 0;
+        @include responsive(768px) {
+            padding: 20px 0;
+        }
+    }
+    &-logo {
+        img {
+        @include responsive(768px) {
+            width: 150px !important;
+        }
+    }
+    }
+    &-hero {
+        &-wrap,
+        &-text {
+            display: flex;
+        }
+        &-text {
+            margin-left: 57px;
+            color: $color-white;
+            flex-direction: column;
+            padding-top: 48px;
+            align-items: flex-start;
+            .hd-btn {
+                margin-top: 20px;
+            }
+            @include responsive(768px) {
+                margin-left: 0;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        &-title,
+        &-info {
+            color: inherit;
+        }
+        &-title {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 48px;
+            margin-bottom: 0;
+            @include responsive(768px) {
+                font-size: 24px;
+                line-height: 36px;
+            }
+        }
+        &-info {
+            line-height: 26px;
+            font-weight: 400;
+            font-size: 16px;
+            @include responsive(768px) {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+        &-wrap {
+            @include responsive(768px) {
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+        }
+        &-img {
+            @include responsive(1024px) {
+                max-width: 500px;
+            }
+            @include responsive(768px) {
+                max-width: 100%;
+            }
+
+        }
+    }
+    &-social {
+        display: flex;
+        justify-content: flex-end;
+        &-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border:  1px solid $color-white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-white;
+            transition: all linear 0.2s;
+            &:not(:first-child) {
+                margin-left: 10px;
+            }
+            &:hover {
+                color: $color-secondary;
+                border-color: $color-secondary;
+            }
+        }
+        @include responsive(768px) {
+            justify-content: center;
+            margin-top: 30px;
+        }
+    }
+    &-footer {
+        padding: 30px 0;
+    }
+}
